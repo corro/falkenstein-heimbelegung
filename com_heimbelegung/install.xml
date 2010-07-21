@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0">
+    <name>Heimbelegung</name>
+    <creationDate>21.07.2010</creationDate>
+    <author>R. Baumgartner</author>
+    <authorEmail>robin@baumgartners.ch</authorEmail>
+    <license>GNU/GPL</license>
+    <version>0.1</version>
+    <description>Component zur Visualisierung der Heimbelegung</description>
+    <files folder="site">
+        <filename>heimbelegung.php</filename>
+        <filename>index.html</filename>
+        <filename>calendar/calendar.php</filename>
+        <filename>controllers/index.html</filename>
+        <filename>controllers/belegung.php</filename>
+        <filename>controllers/belegung_detail.php</filename>
+        <filename>views/index.html</filename>
+        <filename>views/belegung_detail/index.html</filename>
+        <filename>views/belegung_detail/view.html.php</filename>
+        <filename>views/belegung_detail/tmpl/form.php</filename>
+        <filename>views/belegung_detail/tmpl/index.html</filename>
+        <filename>views/belegung/index.html</filename>
+        <filename>views/belegung/view.html.php</filename>
+        <filename>views/belegung/tmpl/default.php</filename>
+		<filename>views/belegung/tmpl/form.php</filename>
+        <filename>views/belegung/tmpl/index.html</filename>
+    </files>
+    <install>
+        <sql>
+            <file charset="utf8" driver="mysql">install.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file charset="utf8" driver="mysql">uninstall.sql</file>
+        </sql>
+    </uninstall>
+    <administration>
+        <menu>Heimbelegung</menu>
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>install.sql</filename>
+            <filename>heimbelegung.php</filename>
+            <filename>uninstall.sql</filename>
+            <filename>controllers/index.html</filename>
+            <filename>controllers/belegung.php</filename>
+            <filename>controllers/belegung_detail.php</filename>
+            <filename>models/index.html</filename>
+            <filename>models/belegung.php</filename>
+            <filename>models/belegung_detail.php</filename>
+            <filename>views/index.html</filename>
+            <filename>views/belegung/index.html</filename>
+            <filename>views/belegung/view.html.php</filename>
+            <filename>views/belegung/tmpl/index.html</filename>
+            <filename>views/belegung/tmpl/form.php</filename>
+            <filename>views/belegung_detail/index.html</filename>
+            <filename>views/belegung_detail/view.html.php</filename>
+            <filename>views/belegung_detail/tmpl/index.html</filename>
+            <filename>views/belegung_detail/tmpl/form.php</filename>
+        </files>		
+    </administration>
+</install>

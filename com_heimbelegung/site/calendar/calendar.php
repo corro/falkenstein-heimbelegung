@@ -28,7 +28,7 @@ function generate_calendar($year, $month, $days = array(), $first_day = 1){
     #Print day names
     foreach($day_names as $d)
         $calendar .= '<th class="calendar-header">'.substr($d,0,3).'</th>';
-    $calendar .= "</tr>\n<tr>";
+    $calendar .= '</tr><tr>';
 
 	if($weekday > 0)
     {
