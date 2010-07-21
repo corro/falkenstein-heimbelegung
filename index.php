@@ -10,8 +10,8 @@
         <input type="radio" name="heim" value="buschi">B&uuml;schiheim</input>
         <input type="radio" name="heim" value="weiermatt">Weiermattheim</input>
         <input type="submit" value="Aktualisieren" style="float:right" /><br />
-        <input type="submit" value="&lt;--" />
-        <input type="submit" value="--&gt;" style="float:right;clear:both" />
+        <input type="submit" value="&lt;--" style="float:left;clear:both" />
+        <input type="submit" value="--&gt;" style="float:right" />
 
     <?php
     include('calendar.php');
