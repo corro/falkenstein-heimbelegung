@@ -1,0 +1,34 @@
+.calendar {
+    border: solid 1px;
+    text-align: center;
+    border-spacing: 0px;
+    font-size: 12px;
+    width:100%;
+    background-color:white;
+}
+
+.calendar th {
+    font-weight: normal;
+    padding: 0px 10px;
+    background-color: #eeeeee;
+}
+
+.calendar-title {
+    border-bottom: solid 1px;
+}
+
+.calendar-header {
+    border-bottom: solid 1px;
+}
+
+.calendar-week {
+    border-right: solid 1px;
+}
+
+.calendar-free {
+    background-color: #009900;
+}
+
+.calendar-busy {
+    background-color: #ee0000;
+}
