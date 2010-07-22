@@ -20,8 +20,8 @@ function generate_calendar($year, $month, $days = array(), $first_day = 1){
 	$title   = htmlentities(ucfirst($month_name)).'&nbsp;'.$year;  #note that some locales don't capitalize month and day names
 
 	#Begin calendar.
-	$calendar = '<table class="calendar">'."\n".
-        '<tr><th class="calendar-title" colspan="8">'.$title.'</td></tr><tr>';
+	$calendar = '<table class="calendar">
+        <tr><th class="calendar-title" colspan="8">'.$title.'</td></tr><tr>';
         
     $calendar .= '<th class="calendar-header">KW</th>';
 
@@ -30,14 +30,15 @@ function generate_calendar($year, $month, $days = array(), $first_day = 1){
         $calendar .= '<th class="calendar-header">'.substr($d,0,3).'</th>';
     $calendar .= '</tr><tr>';
 
+    $calendar_week = date('W', $first_of_month);
+    $calendar .= '<th class="calendar-week">'.$calendar_week.'</th>';
+    
 	if($weekday > 0)
     {
-        $first_day_of_week = gmmktime(0,0,0,$month,$day,$year);
-        $calendar_week = date('W', $first_day_of_week);
-        
         #initial 'empty' days
-        $calendar .= '<th class="calendar-week">'.$calendar_week.'</th><td colspan="'.$weekday.'">&nbsp;</td>'; 
+        $calendar .= '<td colspan="'.$weekday.'">&nbsp;</td>';
     }
+    
 	for($day=1,$days_in_month=gmdate('t',$first_of_month); $day<=$days_in_month; $day++,$weekday++){
 		if($weekday == 7){
 			$weekday   = 0; #start a new week
