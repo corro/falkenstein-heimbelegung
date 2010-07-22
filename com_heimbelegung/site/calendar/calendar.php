@@ -21,13 +21,18 @@ function generate_calendar($year, $month, $days = array(), $first_day = 1){
 
 	#Begin calendar.
 	$calendar = '<table class="calendar">
-        <tr><th class="calendar-title" colspan="8">'.$title.'</td></tr><tr>';
+        <tr><th class="calendar-title" colspan="15">'.$title.'</td></tr><tr>';
         
     $calendar .= '<th class="calendar-header">KW</th>';
 
     #Print day names
     foreach($day_names as $d)
-        $calendar .= '<th class="calendar-header">'.substr($d,0,3).'</th>';
+        $calendar .= '<th class="calendar-header" colspan="2">'.substr($d,0,3).'</th>';
+    $calendar .= '</tr><tr>';
+    
+    $calendar .= '<th></th>';
+    for ($i = 0; $i < 7; $i++)
+        $calendar .= '<th>V</th><th>N</th>';
     $calendar .= '</tr><tr>';
 
     $calendar_week = date('W', $first_of_month);
@@ -36,7 +41,7 @@ function generate_calendar($year, $month, $days = array(), $first_day = 1){
 	if($weekday > 0)
     {
         #initial 'empty' days
-        $calendar .= '<td colspan="'.$weekday.'">&nbsp;</td>';
+        $calendar .= '<td colspan="'.($weekday*2).'">&nbsp;</td>';
     }
     
 	for($day=1,$days_in_month=gmdate('t',$first_of_month); $day<=$days_in_month; $day++,$weekday++){
@@ -46,12 +51,16 @@ function generate_calendar($year, $month, $days = array(), $first_day = 1){
             $calendar_week = date('W', $first_day_of_week);
 			$calendar .= '</tr><tr><th class="calendar-week">'.$calendar_week.'</th>'; #<-- Kalenderwoche
 		}
-		if(in_array($day, $days)) {
-            $calendar .= '<td class="calendar-busy">'.$day.'</td>';
+		if($days[$day] != NULL) {
+            $tagesz = $days[$day];
+            
+            if ($tagesz == 'V') $calendar .= '<td class="calendar-busy">'.$day.'</td><td class="calendar-free"></td>';
+            else if ($tagesz == 'N') $calendar .= '<td class="calendar-free">'.$day.'</td><td class="calendar-busy"></td>';
+            else $calendar .= '<td class="calendar-busy">'.$day.'</td><td class="calendar-busy"></td>';
 		}
-		else $calendar .= '<td class="calendar-free">'.$day.'</td>';
+		else $calendar .= '<td class="calendar-free">'.$day.'</td><td class="calendar-free"></td>';
 	}
-	if($weekday != 7) $calendar .= '<td colspan="'.(7-$weekday).'">&nbsp;</td>'; #remaining "empty" days
+	if($weekday != 7) $calendar .= '<td colspan="'.((7-$weekday)*2).'">&nbsp;</td>'; #remaining "empty" days
 
 	return $calendar."</tr>\n</table>\n";
 }

@@ -33,4 +33,4 @@ INSERT INTO `#__belegung` (von, bis, vonTageszeit, bisTageszeit, heim)
 VALUES ('2010-07-26', '2010-07-31', 'N', 'V', 'buschi');
 
 INSERT INTO `#__belegung` (von, bis, vonTageszeit, bisTageszeit, heim)
-VALUES ('2010-06-28', '2010-07-8', 'N', 'V', 'weiermatt');
+VALUES ('2010-06-28', '2010-07-8', 'B', 'B', 'weiermatt');
