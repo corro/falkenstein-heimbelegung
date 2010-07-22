@@ -32,6 +32,10 @@
     </uninstall>
     <administration>
         <menu>Heimbelegung</menu>
+        <submenu>
+            <menu link="option=com_heimbelegung&amp;heim=buschi">Bueschiheim</menu>
+            <menu link="option=com_heimbelegung&amp;heim=weiermatt">Weiermattheim</menu>
+        </submenu>
         <files folder="admin">
             <filename>index.html</filename>
             <filename>install.sql</filename>
@@ -47,7 +51,7 @@
             <filename>views/belegung/index.html</filename>
             <filename>views/belegung/view.html.php</filename>
             <filename>views/belegung/tmpl/index.html</filename>
-            <filename>views/belegung/tmpl/form.php</filename>
+            <filename>views/belegung/tmpl/default.php</filename>
             <filename>views/belegung_detail/index.html</filename>
             <filename>views/belegung_detail/view.html.php</filename>
             <filename>views/belegung_detail/tmpl/index.html</filename>
