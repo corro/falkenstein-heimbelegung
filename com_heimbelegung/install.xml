@@ -17,7 +17,6 @@
         <filename>views/belegung/index.html</filename>
         <filename>views/belegung/view.html.php</filename>
         <filename>views/belegung/tmpl/default.php</filename>
-		<filename>views/belegung/tmpl/form.php</filename>
         <filename>views/belegung/tmpl/index.html</filename>
     </files>
     <install>
