@@ -27,7 +27,7 @@ function generate_calendar($year, $month, $days = array(), $first_day = 1){
 
     #Print day names
     foreach($day_names as $d)
-        $calendar .= '<th class="calendar-header" colspan="2">'.substr($d,0,3).'</th>';
+        $calendar .= '<th class="calendar-header" colspan="2">'.substr($d,0,2).'</th>';
     $calendar .= '</tr><tr>';
     
     $calendar .= '<th></th>';
