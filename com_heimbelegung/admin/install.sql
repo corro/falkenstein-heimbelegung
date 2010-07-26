@@ -11,6 +11,7 @@ CREATE TABLE `#__belegung` (
   `bis` date NOT NULL,
   `vonTageszeit` char NOT NULL,
   `bisTageszeit` char NOT NULL,
+  `beschreibung` TEXT NULL,
   `heim` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 );

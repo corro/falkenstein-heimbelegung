@@ -26,6 +26,19 @@ var form = document.adminForm;
 
 <form action="index.php?option=com_heimbelegung" method="post" name="adminForm">
 <div id="editcell">
+    <table class="adminform">
+		<tbody>
+			<tr>
+                <td width="100%"><?php if ($this->filter == 1) echo "Belegungen die in der Vergangenheit liegen sind ausgeblendet"; ?></td>
+				<td align="right">
+                    <select name="filter" id="filter" class="inputbox" size="1" onchange="document.adminForm.submit();">
+                        <option value="1" <?php if ($this->filter == 1) echo 'selected="selected"'; ?>>Aktuelle Belegungen</option>
+                        <option value="0" <?php if ($this->filter == 0) echo 'selected="selected"'; ?> >Alle Belegungen</option>
+                    </select>
+                </td>
+			</tr>
+		</tbody>
+	</table>
     <table class="adminlist">
     <thead>
         <tr>
@@ -37,6 +50,7 @@ var form = document.adminForm;
             <th>Bis</th>
             <th>Belegung erster Tag</th>
             <th>Belegung letzter Tag</th>
+            <th>Beschreibung</th>
             <th>Heim</th>
         </tr>
     </thead>
@@ -60,6 +74,7 @@ var form = document.adminForm;
             <td><?php echo date_mysql2german($b->bis); ?></td>
             <td><?php echo humanReadable($b->vonTageszeit); ?></td>
             <td><?php echo humanReadable($b->bisTageszeit); ?></td>
+            <td><?php echo $b->beschreibung; ?></td>
             <td><?php echo $b->heim; ?></td>
         </tr>
     <?php

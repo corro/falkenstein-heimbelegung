@@ -30,12 +30,17 @@ class BelegungViewBelegung extends JView
         JToolBarHelper::addNewX();
 
         $heim = JRequest::getVar('heim');
+        
+        $app =& JFactory::getApplication();
+        $filter = $app->getUserStateFromRequest('belegung.filter', 'filter', 1);
+        
         // Get data from the model
         $model =& $this->getModel();
-        $belegung = $model->getBelegungForHeim($heim);
+        $belegung = $model->getBelegungForHeim($heim, $filter);
 
         $this->assignRef( 'belegung', $belegung );
         $this->assignRef( 'heim', $heim );
+        $this->assignRef( 'filter', $filter );
 
         parent::display($tpl);
     }
