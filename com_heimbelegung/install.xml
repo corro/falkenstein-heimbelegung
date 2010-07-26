@@ -11,9 +11,11 @@
         <filename>heimbelegung.php</filename>
         <filename>index.html</filename>
         <filename>calendar/calendar.php</filename>
+        <filename>calendar/index.html</filename>
         <filename>controllers/index.html</filename>
         <filename>controllers/belegung.php</filename>
         <filename>css/calendar-style.css</filename>
+        <filename>css/index.html</filename>
         <filename>img/view-refresh.png</filename>
         <filename>img/go-previous.png</filename>
         <filename>img/go-next.png</filename>
@@ -51,6 +53,7 @@
             <filename>models/belegung.php</filename>
             <filename>models/belegung_detail.php</filename>
             <filename>helpers/helpers.php</filename>
+            <filename>helpers/index.html</filename>
             <filename>views/index.html</filename>
             <filename>views/belegung/index.html</filename>
             <filename>views/belegung/view.html.php</filename>
