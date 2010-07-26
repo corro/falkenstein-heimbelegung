@@ -11,7 +11,8 @@
  
 // Sicherheitscheck
 defined('_JEXEC') or die('Restricted access');
- 
+
+require_once(JPATH_COMPONENT_ADMINISTRATOR.DS.'helpers'.DS.'helpers.php');
 jimport( 'joomla.application.component.view' );
  
 /**
@@ -24,12 +25,16 @@ class BelegungViewBelegung extends JView
 {
     function display($tpl = null)
     {
-        JToolBarHelper::title( JText::_( 'Belegungs Manager' ), 'generic.png' );
+        $heim = JRequest::getVar('heim');
+        $title = 'Belegungs Manager';
+        $heim_name = heimName($heim);
+        
+        if ($heim_name) $title .= ' ('.$heim_name.')';
+
+        JToolBarHelper::title($title, 'generic.png' );
         JToolBarHelper::deleteList();
         JToolBarHelper::editListX();
         JToolBarHelper::addNewX();
-
-        $heim = JRequest::getVar('heim');
         
         $app =& JFactory::getApplication();
         $filter = $app->getUserStateFromRequest('belegung.filter', 'filter', 1);

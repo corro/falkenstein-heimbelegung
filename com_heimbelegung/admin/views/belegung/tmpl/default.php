@@ -75,7 +75,7 @@ var form = document.adminForm;
             <td><?php echo humanReadable($b->vonTageszeit); ?></td>
             <td><?php echo humanReadable($b->bisTageszeit); ?></td>
             <td><?php echo $b->beschreibung; ?></td>
-            <td><?php echo $b->heim; ?></td>
+            <td><?php echo heimName($b->heim); ?></td>
         </tr>
     <?php
         $i += 1;
