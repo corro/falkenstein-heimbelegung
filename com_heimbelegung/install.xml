@@ -5,7 +5,7 @@
     <author>R. Baumgartner</author>
     <authorEmail>robin@baumgartners.ch</authorEmail>
     <license>GNU/GPL</license>
-    <version>1.0</version>
+    <version>1.1</version>
     <description>Component zur Visualisierung der Heimbelegung</description>
     <files folder="site">
         <filename>heimbelegung.php</filename>
