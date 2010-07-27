@@ -25,7 +25,10 @@ class BelegungViewBelegung extends JView
 {
     function display($tpl = null)
     {
-        $heim = JRequest::getVar('heim');
+        $app =& JFactory::getApplication();
+        $filter = $app->getUserStateFromRequest('belegung.filter', 'filter', 1);
+        $heim   = $app->getUserStateFromRequest('belegung.heim', 'heim', 'buschi');
+        
         $title = 'Belegungs Manager';
         $heim_name = heimName($heim);
         
@@ -35,10 +38,7 @@ class BelegungViewBelegung extends JView
         JToolBarHelper::deleteList();
         JToolBarHelper::editListX();
         JToolBarHelper::addNewX();
-        
-        $app =& JFactory::getApplication();
-        $filter = $app->getUserStateFromRequest('belegung.filter', 'filter', 1);
-        
+
         // Get data from the model
         $model =& $this->getModel();
         $belegung = $model->getBelegungForHeim($heim, $filter);

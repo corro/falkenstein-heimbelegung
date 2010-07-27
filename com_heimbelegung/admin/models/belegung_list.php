@@ -21,23 +21,18 @@ jimport( 'joomla.application.component.model' );
  * @package    Falkenstein.Joomla
  * @subpackage Components
  */
-class BelegungModelBelegung_List extends JModel
+class Belegung_ListModelBelegung_List extends JModel
 {
     function getBelegungForHeim($heim, $filter = 1)
     {
         $app =& JFactory::getApplication();
         $db =& JFactory::getDBO();
         
-        $query = 'SELECT * FROM #__belegung';
-        if ($heim != NULL and $filter == 1)
-        {
-            $heim = $db->quote($heim);
-            $query .= ' WHERE heim = '.$heim.' AND bis > NOW()';
-        }
-        else if ($heim == NULL and $filter == 1)
-        {
-            $query .= ' WHERE bis > NOW()';
-        }
+        $heim = $db->quote($heim);
+        
+        $query = 'SELECT * FROM #__belegung WHERE heim = '.$heim;
+        if ($filter)
+            $query .= ' AND bis > NOW()';
         $query .= ' ORDER BY von';
         
         $db->setQuery($query);

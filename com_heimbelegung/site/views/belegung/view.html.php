@@ -75,7 +75,7 @@ class BelegungViewBelegung extends JView
         // Browsertitel anpassen
         $document = JFactory::getDocument();
         $document->setTitle('Heimbelegung');
-        $document->addStyleSheet(JPATH_COMPONENT.DS.'css'.DS.'calendar-style.css');
+        $document->addStyleSheet(JURI::base().'/components/com_heimbelegung/css/calendar-style.css');
         
         // Warnmeldung für in der Vergangenheit liegende Monate anzeigen
         if (gmmktime(0,0,0,$month,$last_day,$year) < time())

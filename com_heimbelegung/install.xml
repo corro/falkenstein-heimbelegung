@@ -16,10 +16,16 @@
         <filename>controllers/belegung.php</filename>
         <filename>controllers/belegung_list.php</filename>
         <filename>css/calendar-style.css</filename>
+        <filename>css/toolbar-style.css</filename>
         <filename>css/index.html</filename>
         <filename>img/view-refresh.png</filename>
         <filename>img/go-previous.png</filename>
         <filename>img/go-next.png</filename>
+        <filename>img/icon-32-cancel.png</filename>
+        <filename>img/icon-32-delete.png</filename>
+        <filename>img/icon-32-edit.png</filename>
+        <filename>img/icon-32-new.png</filename>
+        <filename>img/icon-32-save.png</filename>
         <filename>views/index.html</filename>
         <filename>views/belegung/index.html</filename>
         <filename>views/belegung/view.html.php</filename>

@@ -25,7 +25,17 @@ var form = document.adminForm;
 </script>
 
 <form action="index.php?option=com_heimbelegung" method="post" name="adminForm">
-<div id="editcell">
+<div style="float:left;border: 1px solid lightgray;padding:17px">
+    Heim:
+    <input type="radio" name="heim" value="buschi" onchange="submitform()"
+        <?php if ($this->heim == 'buschi') echo 'checked="checked"' ?>
+    >B&uuml;schiheim</input>
+    <input type="radio" name="heim" value="weiermatt" onchange="submitform()"
+        <?php if ($this->heim == 'weiermatt') echo 'checked="checked"' ?>
+    >Weiermattheim</input>
+</div>
+
+<div style="clear:both" id="editcell">
     <table class="adminform">
 		<tbody>
 			<tr>
@@ -39,7 +49,7 @@ var form = document.adminForm;
 			</tr>
 		</tbody>
 	</table>
-    <table class="adminlist">
+    <table class="adminlist" style="width:100%">
     <thead>
         <tr>
             <th width='10'>#</th>
@@ -86,8 +96,7 @@ var form = document.adminForm;
 
 <input type="hidden" name="option" value="com_heimbelegung" />
 <input type="hidden" name="task" value="" />
-<input type="hidden" name="heim" value="<?php echo $this->heim; ?>" />
 <input type="hidden" name="boxchecked" value="0" />
-<input type="hidden" name="controller" value="belegung" />
+<input type="hidden" name="controller" value="belegung_list" />
  
 </form>

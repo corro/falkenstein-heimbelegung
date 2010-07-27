@@ -39,7 +39,7 @@ function heimName($heim_id)
         return 'B&uuml;schiheim';
     else if ($heim_id == 'weiermatt')
         return 'Weiermattheim';
-    else return NULL;
+    else return null;
 }
 
 function prepareCalendar($input, $button)
