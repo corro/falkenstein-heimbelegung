@@ -40,6 +40,13 @@ class Belegung_DetailController extends JController
      */
     function edit()
     {
+        $user =& JFactory::getUser();
+        if (!$user->authorize('com_tageler', 'edit'))
+        {
+            echo '<h1>Zugriff verweigert</h1>Dieser Bereich ist den Leitern und Administratoren vorbehalten';
+            return;
+        }
+        
         JRequest::setVar( 'view', 'belegung_detail' );
         JRequest::setVar( 'layout', 'form'  );
 
@@ -51,6 +58,13 @@ class Belegung_DetailController extends JController
      */
     function save()
     {
+        $user =& JFactory::getUser();
+        if (!$user->authorize('com_tageler', 'edit'))
+        {
+            echo '<h1>Zugriff verweigert</h1>Dieser Bereich ist den Leitern und Administratoren vorbehalten';
+            return;
+        }
+        
         // Sicherheitsüberprüfung zum Verhindern von Request-Fälschungen
         JRequest::checkToken() or jexit('Invalid Token');
 
@@ -69,6 +83,13 @@ class Belegung_DetailController extends JController
 
     function remove()
     {
+        $user =& JFactory::getUser();
+        if (!$user->authorize('com_tageler', 'edit'))
+        {
+            echo '<h1>Zugriff verweigert</h1>Dieser Bereich ist den Leitern und Administratoren vorbehalten';
+            return;
+        }
+        
         $heim = JRequest::getVar( 'heim' );
         $cid = JRequest::getVar( 'cid', array(0), 'post', 'array' );
 

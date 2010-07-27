@@ -5,7 +5,7 @@
     <author>R. Baumgartner</author>
     <authorEmail>robin@baumgartners.ch</authorEmail>
     <license>GNU/GPL</license>
-    <version>1.1</version>
+    <version>1.2</version>
     <description>Component zur Visualisierung der Heimbelegung</description>
     <files folder="site">
         <filename>heimbelegung.php</filename>
@@ -23,6 +23,7 @@
         <filename>img/go-previous.png</filename>
         <filename>img/go-next.png</filename>
         <filename>img/icon-32-cancel.png</filename>
+        <filename>img/icon-32-back.png</filename>
         <filename>img/icon-32-delete.png</filename>
         <filename>img/icon-32-edit.png</filename>
         <filename>img/icon-32-new.png</filename>

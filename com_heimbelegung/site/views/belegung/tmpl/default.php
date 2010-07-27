@@ -33,7 +33,6 @@ function changeMonth(month, year)
 </div>
 
 <div class='contentpaneopen'>
-    
     <form name="calendar" action="" method="post">
         <img style="float:left;cursor:pointer" src="components/com_heimbelegung/img/go-previous.png"
              title="Einen Monat zur&uuml;ck" alt="previous"
@@ -86,6 +85,3 @@ function changeMonth(month, year)
         Zuletzt aktualisiert am: <?php echo date_mysql2german($this->last_mod); ?>
     </div>
 </div>
-</body>
-
-</html>

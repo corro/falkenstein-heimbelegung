@@ -27,10 +27,10 @@ class Belegung_ListViewBelegung_List extends JView
     function display($tpl = null)
     {
         $toolbar =& new JToolBar( 'Belegung' );
-        $toolbar->appendButton( 'Standard', 'delete', 'Belegung l&ouml;schen', 'remove', true);
-        $toolbar->appendButton( 'Standard', 'edit', 'Belegung editieren', 'edit', true);
-        $toolbar->appendButton( 'Standard', 'new', 'Belegung hinzuf&uuml;gen', 'add', false);
-        echo $toolbar->render();
+        $toolbar->appendButton( 'Standard', 'back', 'Zur&uuml;ck', 'back', false );
+        $toolbar->appendButton( 'Standard', 'delete', 'Belegung l&ouml;schen', 'remove', true );
+        $toolbar->appendButton( 'Standard', 'edit', 'Belegung editieren', 'edit', true );
+        $toolbar->appendButton( 'Standard', 'new', 'Belegung hinzuf&uuml;gen', 'add', false );
         
         $app =& JFactory::getApplication();
         $filter = $app->getUserStateFromRequest('belegung.filter', 'filter', 1);
@@ -48,6 +48,7 @@ class Belegung_ListViewBelegung_List extends JView
         $this->assignRef( 'belegung', $belegung );
         $this->assignRef( 'heim', $heim );
         $this->assignRef( 'filter', $filter );
+        $this->assignRef( 'toolbar', $toolbar->render() );
 
         parent::display($tpl);
     }

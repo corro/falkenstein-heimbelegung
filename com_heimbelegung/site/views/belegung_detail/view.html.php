@@ -47,14 +47,13 @@ class Belegung_DetailViewBelegung_Detail extends JView
             $toolbar->appendButton( 'Standard', 'cancel', 'Abbrechen', 'cancel', false);
         }
         
-        echo $toolbar->render();
-        
         // Browsertitel anpassen
         $document = JFactory::getDocument();
         $document->setTitle('Belegung bearbeiten');
         $document->addStyleSheet(JURI::base().'components/com_heimbelegung/css/toolbar-style.css');
         
         $this->assignRef('heim', $heim);
+        $this->assignRef('toolbar', $toolbar->render());
 
         parent::display($tpl);
     }
