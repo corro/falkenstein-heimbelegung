@@ -41,7 +41,7 @@ class Belegung_DetailController extends JController
     function edit()
     {
         $user =& JFactory::getUser();
-        if (!$user->authorize('com_tageler', 'edit'))
+        if (!$user->authorize('com_heimbelegung', 'edit'))
         {
             echo '<h1>Zugriff verweigert</h1>Dieser Bereich ist den Leitern und Administratoren vorbehalten';
             return;
@@ -59,7 +59,7 @@ class Belegung_DetailController extends JController
     function save()
     {
         $user =& JFactory::getUser();
-        if (!$user->authorize('com_tageler', 'edit'))
+        if (!$user->authorize('com_heimbelegung', 'edit'))
         {
             echo '<h1>Zugriff verweigert</h1>Dieser Bereich ist den Leitern und Administratoren vorbehalten';
             return;
@@ -84,7 +84,7 @@ class Belegung_DetailController extends JController
     function remove()
     {
         $user =& JFactory::getUser();
-        if (!$user->authorize('com_tageler', 'edit'))
+        if (!$user->authorize('com_heimbelegung', 'edit'))
         {
             echo '<h1>Zugriff verweigert</h1>Dieser Bereich ist den Leitern und Administratoren vorbehalten';
             return;

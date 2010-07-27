@@ -19,7 +19,7 @@ require_once (JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php');
 $auth =& JFactory::getACL();
 $auth->addACL('com_heimbelegung', 'edit', 'users', 'super administrator');
 $auth->addACL('com_heimbelegung', 'edit', 'users', 'administrator');
-$auth->addACL('com_heimbelegung', 'edit', 'users', 'author');
+$auth->addACL('com_heimbelegung', 'edit', 'users', 'editor');
 
 // Controller instanzieren
 $classname  = $controller.'controller';
