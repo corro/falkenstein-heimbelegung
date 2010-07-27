@@ -27,9 +27,9 @@ function changeMonth(month, year)
 
 
 <div class='componentheading'>
-    Heimbelegung <?php if ($this->heim == 'buschi') echo 'B&uuml;schiheim'; else if ($this->heim == 'weiermatt') echo 'Weiermattheim'; ?> im
+    Heimbelegung <?php heimName($this->heim); ?> im
     <?php echo gmstrftime('%B', gmmktime(0,0,0,$this->month,1,$this->year)); ?> <?php echo $this->year; ?>
-    <?php echo getEditButton('com_heimbelegung', 'Belegungen editieren', 'belegung'); ?><br />
+    <?php echo getEditButton('com_heimbelegung', 'Belegungen editieren', 'belegung_list'); ?><br />
 </div>
 
 <div class='contentpaneopen'>
