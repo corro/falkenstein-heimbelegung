@@ -14,7 +14,6 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 // Import der Basisklasse
 jimport( 'joomla.application.component.controller' );
 
-
 /**
  * Belegungs-Detail Controller
  *
@@ -32,6 +31,7 @@ class Belegung_DetailController extends JController
 
         // Register Extra tasks
         $this->registerTask( 'add', 'edit' );
+        $this->addModelPath( JPATH_COMPONENT_ADMINISTRATOR.DS.'models' );
     }
 
     /**
@@ -42,7 +42,6 @@ class Belegung_DetailController extends JController
     {
         JRequest::setVar( 'view', 'belegung_detail' );
         JRequest::setVar( 'layout', 'form'  );
-        JRequest::setVar( 'hidemainmenu', 1 );
 
         parent::display();
     }
@@ -65,7 +64,7 @@ class Belegung_DetailController extends JController
             $msg = 'Fehler beim Speichern der Belegung';
         }
 
-        $this->setRedirect('index.php?option=com_heimbelegung', $msg);
+        $this->setRedirect('index.php?option=com_heimbelegung&controller=belegung_list&task=edit', $msg);
     }
 
     function remove()
@@ -80,9 +79,7 @@ class Belegung_DetailController extends JController
             $msg = 'Fehler beim Entfernen der Belegung';
         }
 
-        $redirect = 'index.php?option=com_heimbelegung';
-
-        $this->setRedirect( $redirect, $msg);
+        $this->setRedirect( 'index.php?option=com_heimbelegung&controller=belegung_list&task=edit', $msg);
     }
 
     /**
@@ -90,6 +87,6 @@ class Belegung_DetailController extends JController
     */
     function cancel()
     {
-        $this->setRedirect( 'index.php?option=com_heimbelegung', $msg);
+        $this->setRedirect( 'index.php?option=com_heimbelegung&controller=belegung_list&task=edit', $msg);
     }
 }

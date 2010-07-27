@@ -1,6 +1,6 @@
 <?php
 /**
- * Belegungen View für das Tageler Component
+ * Belegungen-List View für das Tageler Component
  * 
  * @author     R. Baumgartner
  * @package    Falkenstein.Joomla
@@ -17,7 +17,7 @@ jimport( 'joomla.application.component.view' );
 jimport('joomla.html.toolbar');
  
 /**
- * Belegungen View
+ * Belegungen-List View
  *
  * @package    Falkenstein.Joomla
  * @subpackage Components
@@ -26,16 +26,15 @@ class Belegung_ListViewBelegung_List extends JView
 {
     function display($tpl = null)
     {
-        $heim = JRequest::getVar('heim');
-
         $toolbar =& new JToolBar( 'Belegung' );
-        $toolbar->appendButton( 'Standard', 'delete', 'Belegung l&ouml;schen', 'delete', true);
+        $toolbar->appendButton( 'Standard', 'delete', 'Belegung l&ouml;schen', 'remove', true);
         $toolbar->appendButton( 'Standard', 'edit', 'Belegung editieren', 'edit', true);
-        $toolbar->appendButton( 'Standard', 'new', 'Belegung hinzuf&uuml;gen', 'new', false);
+        $toolbar->appendButton( 'Standard', 'new', 'Belegung hinzuf&uuml;gen', 'add', false);
         echo $toolbar->render();
         
         $app =& JFactory::getApplication();
         $filter = $app->getUserStateFromRequest('belegung.filter', 'filter', 1);
+        $heim   = $app->getUserStateFromRequest('belegung.heim', 'heim', 'buschi');
         
         // Browsertitel anpassen
         $document = JFactory::getDocument();

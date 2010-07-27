@@ -27,7 +27,7 @@ function changeMonth(month, year)
 
 
 <div class='componentheading'>
-    Heimbelegung <?php heimName($this->heim); ?> im
+    Heimbelegung <?php echo heimName($this->heim); ?> im
     <?php echo gmstrftime('%B', gmmktime(0,0,0,$this->month,1,$this->year)); ?> <?php echo $this->year; ?>
     <?php echo getEditButton('com_heimbelegung', 'Belegungen editieren', 'belegung_list'); ?><br />
 </div>

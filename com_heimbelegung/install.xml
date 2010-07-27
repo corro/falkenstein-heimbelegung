@@ -14,6 +14,7 @@
         <filename>calendar/index.html</filename>
         <filename>controllers/index.html</filename>
         <filename>controllers/belegung.php</filename>
+        <filename>controllers/belegung_detail.php</filename>
         <filename>controllers/belegung_list.php</filename>
         <filename>css/calendar-style.css</filename>
         <filename>css/toolbar-style.css</filename>
@@ -31,6 +32,10 @@
         <filename>views/belegung/view.html.php</filename>
         <filename>views/belegung/tmpl/default.php</filename>
         <filename>views/belegung/tmpl/index.html</filename>
+        <filename>views/belegung_detail/index.html</filename>
+        <filename>views/belegung_detail/view.html.php</filename>
+        <filename>views/belegung_detail/tmpl/form.php</filename>
+        <filename>views/belegung_detail/tmpl/index.html</filename>
         <filename>views/belegung_list/index.html</filename>
         <filename>views/belegung_list/view.html.php</filename>
         <filename>views/belegung_list/tmpl/default.php</filename>

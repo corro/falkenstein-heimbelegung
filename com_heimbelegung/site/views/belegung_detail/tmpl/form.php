@@ -29,7 +29,7 @@ textarea.input {
 }
 </style>
 
-<form action="index.php" method="post" name="adminForm" id="adminForm">
+<form style="clear:both" action="index.php" method="post" name="adminForm" id="adminForm">
     <fieldset>
     <legend>Belegung</legend>
     <table class="admintable">
@@ -89,7 +89,7 @@ textarea.input {
                 <label for="beschreibung" class="hasTip" title="Dieser Text dient der Identifikation der Belegung, ist aber nur als Gedankenst&uuml;tze gedacht. Sinnvollerweise k&ouml;nnte der Name des Mieters angegeben werden">Beschreibung:</label>
             </td>
             <td>
-                <textarea class="input" name="beschreibung" id="beschreibung"><?php if(isset($this->belegung)) echo $this->belegung->beschreibung; ?></textarea>
+                <textarea class="input" name="beschreibung" id="beschreibung"><?php if (isset($this->belegung)) echo $this->belegung->beschreibung; ?></textarea>
             </td>
         </tr>
     </table>

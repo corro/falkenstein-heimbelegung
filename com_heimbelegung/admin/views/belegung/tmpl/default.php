@@ -79,7 +79,7 @@ var form = document.adminForm;
         </tr>
     <?php
         $i += 1;
-        $k = 1 - k;
+        $k = 1 - $k;
     } ?>
     </table>
 </div>

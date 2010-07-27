@@ -51,12 +51,15 @@ function generate_calendar($year, $month, $days = array(), $first_day = 1){
             $calendar_week = date('W', $first_day_of_week);
 			$calendar .= '</tr><tr><th class="calendar-week">'.$calendar_week.'</th>'; #<-- Kalenderwoche
 		}
-		if($days[$day] != NULL) {
+		if(isset($days[$day])) {
             $tagesz = $days[$day];
             
-            if ($tagesz == 'V') $calendar .= '<td class="calendar-busy">'.$day.'</td><td class="calendar-free"></td>';
-            else if ($tagesz == 'N') $calendar .= '<td class="calendar-free">'.$day.'</td><td class="calendar-busy"></td>';
-            else $calendar .= '<td class="calendar-busy">'.$day.'</td><td class="calendar-busy"></td>';
+            if ($tagesz == 'V')
+                $calendar .= '<td class="calendar-busy">'.$day.'</td><td class="calendar-free"></td>';
+            else if ($tagesz == 'N')
+                $calendar .= '<td class="calendar-free">'.$day.'</td><td class="calendar-busy"></td>';
+            else
+                $calendar .= '<td class="calendar-busy">'.$day.'</td><td class="calendar-busy"></td>';
 		}
 		else $calendar .= '<td class="calendar-free">'.$day.'</td><td class="calendar-free"></td>';
 	}

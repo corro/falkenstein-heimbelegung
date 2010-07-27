@@ -22,7 +22,6 @@ $auth->addACL('com_heimbelegung', 'edit', 'users', 'administrator');
 $auth->addACL('com_heimbelegung', 'edit', 'users', 'author');
 
 // Controller instanzieren
-// $classname	= 'TagelerController'.$controller;
 $classname  = $controller.'controller';
 $controller = new $classname();
 
