@@ -43,7 +43,7 @@ textarea.input {
         <legend>Belegung</legend>
         <table class="admintable">
             <tr>
-                <td class="key"
+                <td class="key">
                     <label for="von">Von:</label>
                 </td>
                 <td>
