@@ -82,6 +82,7 @@ function changeMonth(month, year)
     <hr />
     <div style="width:400px;margin-left:auto;margin-right:auto">
         <?php echo generate_calendar($this->year, $this->month, $this->days); ?>
-        Zuletzt aktualisiert am: <?php echo date_mysql2german($this->last_mod); ?>
+        V = Vormittag, N = Nachmittag<br />
+        <span style="font-size:8pt;color:gray">Zuletzt aktualisiert am: <?php echo date_mysql2german($this->last_mod); ?></span>
     </div>
 </div>
