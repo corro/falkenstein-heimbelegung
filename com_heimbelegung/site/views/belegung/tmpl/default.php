@@ -35,7 +35,7 @@ function changeMonth(month, year)
 
 <div class='contentpaneopen'>
     <form name="calendar" action="" method="post">
-        <img style="float:left;cursor:pointer" src="components/com_heimbelegung/img/go-previous.png"
+        <img style="float:left;cursor:pointer" class="hasTip" src="components/com_heimbelegung/img/go-previous.png"
              title="Einen Monat zur&uuml;ck" alt="previous"
              onclick="changeMonth(<?php echo gmdate('n', $this->prev); ?>, <?php echo gmdate('Y', $this->prev); ?>)" />
         <div style="float:left">
@@ -48,10 +48,10 @@ function changeMonth(month, year)
             >Weiermattheim</input>
         </div>
         
-        <img style="float:right;cursor:pointer" src="components/com_heimbelegung/img/go-next.png" title="Einen Monat vorw&auml;rts" alt="next"
+        <img style="float:right;cursor:pointer" class="hasTip" src="components/com_heimbelegung/img/go-next.png" title="Einen Monat vorw&auml;rts" alt="next"
              onclick="changeMonth(<?php echo gmdate('n', $this->next); ?>, <?php echo gmdate('Y', $this->next); ?>)" />
              
-        <img style="float:right;cursor:pointer" src="components/com_heimbelegung/img/view-refresh.png" onclick="submitform()" title="Refresh" alt="refresh" />
+        <img style="float:right;cursor:pointer" class="hasTip" src="components/com_heimbelegung/img/view-refresh.png" onclick="submitform()" title="Refresh" alt="refresh" />
         
         <div style="float:right">
             <select name="goto_month" id="goto_month" onchange="changeMonth(document.getElementById('goto_month').value, <?php echo $this->year; ?>)">
