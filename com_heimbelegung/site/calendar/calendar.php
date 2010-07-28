@@ -5,6 +5,22 @@
 #  see example at http://keithdevens.com/weblog
 # License: http://keithdevens.com/software/license
 
+function getCell($day, $busy, $vormittag)
+{
+    $cell = '<td class="hasTip ';
+    
+    if ($busy and $vormittag)
+        $cell .= 'calendar-busy" title="'.$day.'. Vormittag::Besetzt">'.$day.'</td>';
+    else if ($busy)
+        $cell .= 'calendar-busy" title="'.$day.'. Nachmittag::Besetzt"></td>';
+    else if ($vormittag)
+        $cell .= 'calendar-free" title="'.$day.'. Vormittag::Frei">'.$day.'</td>';
+    else
+        $cell .= 'calendar-free" title="'.$day.'. Nachmittag::Frei"></td>';
+        
+    return $cell;
+}
+
 function generate_calendar($year, $month, $days = array(), $first_day = 1){
 	$first_of_month = gmmktime(0,0,0,$month,1,$year);
 	#remember that mktime will automatically correct if invalid dates are entered
@@ -55,13 +71,13 @@ function generate_calendar($year, $month, $days = array(), $first_day = 1){
             $tagesz = $days[$day];
             
             if ($tagesz == 'V')
-                $calendar .= '<td class="calendar-busy">'.$day.'</td><td class="calendar-free"></td>';
+                $calendar .= getCell($day, true, true).getCell($day, false, false);
             else if ($tagesz == 'N')
-                $calendar .= '<td class="calendar-free">'.$day.'</td><td class="calendar-busy"></td>';
+                $calendar .= getCell($day, false, true).getCell($day, true, false);
             else
-                $calendar .= '<td class="calendar-busy">'.$day.'</td><td class="calendar-busy"></td>';
+                $calendar .= getCell($day, true, true).getCell($day, true, false);
 		}
-		else $calendar .= '<td class="calendar-free">'.$day.'</td><td class="calendar-free"></td>';
+		else $calendar .= getCell($day, false, true).getCell($day, false, false);
 	}
 	if($weekday != 7) $calendar .= '<td colspan="'.((7-$weekday)*2).'">&nbsp;</td>'; #remaining "empty" days
 

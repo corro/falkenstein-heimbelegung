@@ -42,7 +42,7 @@ var form = document.adminForm;
     <table class="adminlist">
     <thead>
         <tr>
-            <th width='10'>#</th>
+            <th width="10">#</th>
             <th width="20">
                 <input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->belegung ); ?>);" />
             </th>
@@ -61,12 +61,12 @@ var form = document.adminForm;
     {
         $checked = JHTML::_( 'grid.id', $i, $b->id );
     ?>
-        <tr class='<?php echo 'row'.$k; ?>'>
+        <tr class="<?php echo 'row'.$k; ?>">
             <td><?php echo $b->id; ?></td>
             <td><?php echo $checked; ?></td>
             <td>
-                <span class='editlinktip hasTip' title='Edit::Belegung vom <?php echo date_mysql2german($b->von); ?>'>
-                    <a href='index.php?option=com_heimbelegung&controller=belegung_detail&task=edit&cid[]=<?php echo $b->id; ?>'>
+                <span class="editlinktip hasTip" title="Editieren::Belegung vom <?php echo date_mysql2german($b->von); ?> bis <?php echo date_mysql2german($b->bis); ?>" >
+                    <a href="index.php?option=com_heimbelegung&controller=belegung_detail&task=edit&cid[]=<?php echo $b->id; ?>">
                         <?php echo date_mysql2german($b->von); ?>
                     </a>
                 </span>

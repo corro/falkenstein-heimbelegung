@@ -73,7 +73,7 @@ var form = document.adminForm;
                     <td><?php echo $b->id; ?></td>
                     <td><?php echo $checked; ?></td>
                     <td>
-                        <span class='editlinktip hasTip' title='Edit::Belegung vom <?php echo date_mysql2german($b->von); ?>'>
+                        <span class='editlinktip hasTip' title='Editieren::Belegung vom <?php echo date_mysql2german($b->von); ?> bis <?php echo date_mysql2german($b->bis); ?>'>
                             <a href='index.php?option=com_heimbelegung&controller=belegung_detail&task=edit&cid[]=<?php echo $b->id; ?>'>
                                 <?php echo date_mysql2german($b->von); ?>
                             </a>
