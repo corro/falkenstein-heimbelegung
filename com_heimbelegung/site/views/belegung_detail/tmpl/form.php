@@ -13,9 +13,24 @@ prepareCalendar('bis', 'bis_img');
 
 <script language="javascript" type="text/javascript">
 <!--
-function submitbutton(pressbutton)
+function submitbutton(button)
 {
-    submitform(pressbutton);
+    if (button == 'save') {
+        var von = $('von').value;
+        var bis = $('bis').value;
+        
+        var pattern = /^[0-3]?\d\.[01]?\d\.[12]\d{3}$/;
+        
+        if (pattern.test(von) && pattern.test(bis)) {
+            submitform(button);
+        }
+        else {
+            alert('Ein gueltiges Start- und Enddatum muss angegeben werden');
+        }
+    }
+    else {
+        submitform(button);
+    }
 }
 //-->
 </script>
