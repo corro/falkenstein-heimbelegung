@@ -13,9 +13,24 @@ prepareCalendar('bis', 'bis_img');
 
 <script language="javascript" type="text/javascript">
 <!--
-function submitbutton(pressbutton)
+function submitbutton(button)
 {
-    submitform(pressbutton);
+    if (button == 'save') {
+        var von = $('von').value;
+        var bis = $('bis').value;
+        
+        var pattern = /^[0-3]?\d\.[01]?\d\.[12]\d{3}$/;
+        
+        if (pattern.test(von) && pattern.test(bis)) {
+            submitform(button);
+        }
+        else {
+            alert('Ein gueltiges Start- und Enddatum muss angegeben werden');
+        }
+    }
+    else {
+        submitform(button);
+    }
 }
 //-->
 </script>
@@ -34,7 +49,7 @@ textarea.input {
     <legend>Belegung</legend>
     <table class="admintable">
         <tr>
-            <td class="key"
+            <td class="key">
                 <label for="von">Von:</label>
             </td>
             <td>
@@ -57,8 +72,12 @@ textarea.input {
             </td>
             <td>
                 <select class="input" name="von_tagesz">
-                    <option value="B">Vor- und Nachmittag</option>
-                    <option value="N">Nachmittag</option>
+                    <option value="B" <?php
+                        if (isset($this->belegung) and $this->belegung->vonTageszeit == 'B')
+                            echo 'selected="selected"'; ?>>Vor- und Nachmittag</option>
+                    <option value="N" <?php
+                        if (isset($this->belegung) and $this->belegung->vonTageszeit == 'N')
+                            echo 'selected="selected"'; ?>>Nachmittag</option>
                 </select>
             </td>
         </tr>
@@ -68,8 +87,12 @@ textarea.input {
             </td>
             <td>
                 <select class="input" name="bis_tagesz">
-                    <option value="B">Vor- und Nachmittag</option>
-                    <option value="V">Vormittag</option>
+                    <option value="B" <?php
+                        if (isset($this->belegung) and $this->belegung->bisTageszeit == 'B')
+                            echo 'selected="selected"'; ?>>Vor- und Nachmittag</option>
+                    <option value="V" <?php
+                        if (isset($this->belegung) and $this->belegung->bisTageszeit == 'V')
+                            echo 'selected="selected"'; ?>>Vormittag</option>
                 </select>
             </td>
         </tr>

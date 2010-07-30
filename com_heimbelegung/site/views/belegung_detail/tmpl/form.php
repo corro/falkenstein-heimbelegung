@@ -81,8 +81,12 @@ textarea.input {
                 </td>
                 <td>
                     <select class="input" name="von_tagesz">
-                        <option value="B">Vor- und Nachmittag</option>
-                        <option value="N">Nachmittag</option>
+                        <option value="B" <?php
+                            if (isset($this->belegung) and $this->belegung->vonTageszeit == 'B')
+                                echo 'selected="selected"'; ?>>Vor- und Nachmittag</option>
+                        <option value="N" <?php
+                            if (isset($this->belegung) and $this->belegung->vonTageszeit == 'N')
+                                echo 'selected="selected"'; ?>>Nachmittag</option>
                     </select>
                 </td>
             </tr>
@@ -92,8 +96,12 @@ textarea.input {
                 </td>
                 <td>
                     <select class="input" name="bis_tagesz">
-                        <option value="B">Vor- und Nachmittag</option>
-                        <option value="V">Vormittag</option>
+                        <option value="B" <?php
+                            if (isset($this->belegung) and $this->belegung->bisTageszeit == 'B')
+                                echo 'selected="selected"'; ?>>Vor- und Nachmittag</option>
+                        <option value="V" <?php
+                            if (isset($this->belegung) and $this->belegung->bisTageszeit == 'V')
+                                echo 'selected="selected"'; ?>>Vormittag</option>
                     </select>
                 </td>
             </tr>
@@ -103,8 +111,12 @@ textarea.input {
                 </td>
                 <td>
                     <select class="input" name="heim">
-                        <option value="buschi" <?php if ((isset($this->belegung) and $this->belegung->heim == 'buschi') or $this->heim == 'buschi') echo 'selected="selected"'; ?>>B&uuml;schiheim</option>
-                        <option value="weiermatt" <?php if ((isset($this->belegung) and $this->belegung->heim == 'weiermatt') or $this->heim == 'weiermatt') echo 'selected="selected"'; ?>>Weiermattheim</option>
+                        <option value="buschi" <?php
+                            if ((isset($this->belegung) and $this->belegung->heim == 'buschi') or $this->heim == 'buschi')
+                                echo 'selected="selected"'; ?>>B&uuml;schiheim</option>
+                        <option value="weiermatt" <?php
+                            if ((isset($this->belegung) and $this->belegung->heim == 'weiermatt') or $this->heim == 'weiermatt')
+                                echo 'selected="selected"'; ?>>Weiermattheim</option>
                     </select>
                 </td>
             </tr>

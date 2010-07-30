@@ -41,8 +41,20 @@ class BelegungViewBelegung extends JView
             $von = strtotime($b->von);
             $bis = strtotime($b->bis);
             
-            if ($von < $start_date) $von = $start_date;
-            if ($bis > $stop_date) $bis = $stop_date;
+            // Zeigt an, ob die Datumsgrenzen beschnitten wurden
+            $cut_von = false;
+            $cut_bis = false;
+            
+            if ($von < $start_date)
+            {
+                $cut_von = true;
+                $von = $start_date;
+            }
+            if ($bis > $stop_date)
+            {
+                $cut_bis = true;
+                $bis = $stop_date;
+            }
 
             $day_von   = date('j', $von);
             $day_bis   = date('j', $bis);
@@ -52,9 +64,17 @@ class BelegungViewBelegung extends JView
             {
                 $day = $day_von + $i;
 
-                if ($i == 0) $days[$day] = $b->vonTageszeit;
-                else if ($i == $day_count) $days[$day] = $b->bisTageszeit;
-                else $days[$day] = 'B';
+                // Behandlung der möglichen Fälle
+                if ($i == 0 and !$cut_von)
+                    $days[$day] = $b->vonTageszeit;
+                else if ($i == 0 and $cut_von)
+                    $days[$day] = 'B';
+                else if ($i == $day_count and !$cut_bis)
+                    $days[$day] = $b->bisTageszeit;
+                else if ($i == $day_count and $cut_bis)
+                    $days[$day] = 'B';
+                else
+                    $days[$day] = 'B';
             }
         }
 
