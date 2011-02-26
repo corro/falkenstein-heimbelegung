@@ -15,11 +15,7 @@ $controller = JRequest::getVar('controller','belegung');
 
 require_once (JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php');
 
-// Editierfunktionen beschränken
-$auth =& JFactory::getACL();
-$auth->addACL('com_heimbelegung', 'edit', 'users', 'super administrator');
-$auth->addACL('com_heimbelegung', 'edit', 'users', 'administrator');
-$auth->addACL('com_heimbelegung', 'edit', 'users', 'editor');
+// TODO: Editierfunktionen beschränken
 
 // Controller instanzieren
 $classname  = $controller.'controller';
