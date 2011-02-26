@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6.0">
+    <name>Heimbelegung</name>
+    <creationDate>21.07.2010</creationDate>
+    <author>R. Baumgartner</author>
+    <authorEmail>robin@baumgartners.ch</authorEmail>
+    <license>GNU/GPL</license>
+    <version>1.6</version>
+    <description>Component zur Visualisierung der Heimbelegung</description>
+    <files folder="site">
+        <filename>heimbelegung.php</filename>
+        <filename>index.html</filename>
+        <folder>calendar</folder>
+        <folder>controllers</folder>
+        <folder>css</folder>
+        <folder>img</folder>
+        <folder>views</folder>
+    </files>
+    <install>
+        <sql>
+            <file charset="utf8" driver="mysql">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file charset="utf8" driver="mysql">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <administration>
+        <menu>Heimbelegung</menu>
+        <submenu>
+            <menu link="option=com_heimbelegung&amp;heim=buschi">Bueschiheim</menu>
+            <menu link="option=com_heimbelegung&amp;heim=weiermatt">Weiermattheim</menu>
+        </submenu>
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>heimbelegung.php</filename>
+            <folder>controllers</folder>
+            <folder>models</folder>
+            <folder>helpers</folder>
+            <folder>sql</folder>
+            <folder>views</folder>
+        </files>		
+    </administration>
+</extension>
