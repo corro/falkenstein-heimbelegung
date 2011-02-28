@@ -3,10 +3,11 @@
 function getEditButton($component, $title, $controller)
 {
     $user =& JFactory::getUser();
-    if ($user->authorize($component, 'edit'))
+    if ($user->authorise('core.edit', $component))
     {
+        $link = JRoute::_('index.php?option='.$component.'&controller='.$controller.'&task=edit');
         return '<span class="hasTip" title="'.$title.'">
-                    <a href="index.php?option='.$component.'&controller='.$controller.'&task=edit">
+                    <a href="'.$link.'">
                         <img src="images/M_images/edit.png" alt="edit" />
                     </a>
                 </span>';

@@ -38,11 +38,13 @@ class Belegung_ListController extends JController
     function display()
     {
         $user =& JFactory::getUser();
-        if (!$user->authorize('com_heimbelegung', 'edit'))
+        if (!$user->authorise('core.edit', $component))
         {
             echo '<h1>Zugriff verweigert</h1>Dieser Bereich ist den Leitern und Administratoren vorbehalten';
             return;
         }
+
+        JRequest::setVar('view', 'belegung_list');
         
         parent::display();
     }
