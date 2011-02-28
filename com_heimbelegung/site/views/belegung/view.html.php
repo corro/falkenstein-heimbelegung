@@ -92,10 +92,17 @@ class BelegungViewBelegung extends JView
         $this->assignRef('heim', $heim);
         $this->assignRef('last_mod', $last_mod);
 
-        // Browsertitel anpassen
-        $document = JFactory::getDocument();
-        $document->setTitle('Heimbelegung');
-        $document->addStyleSheet(JURI::base().'/components/com_heimbelegung/css/calendar-style.css');
+        // Stylesheet hinzufügen
+        $this->document->addStyleSheet('components/com_heimbelegung/css/calendar-style.css');
+
+        // Titel setzen
+        $app = JFactory::getApplication();
+        $title = 'Heimbelegung';
+        if ($app->getCfg('sitename_pagetitles', 0))
+        {
+            $title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
+        }
+        $this->document->setTitle($title);
         
         // Warnmeldung für in der Vergangenheit liegende Monate anzeigen
         if (gmmktime(23,59,59,$month,$last_day,$year) < time())
