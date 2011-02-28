@@ -98,7 +98,7 @@ class BelegungViewBelegung extends JView
         $document->addStyleSheet(JURI::base().'/components/com_heimbelegung/css/calendar-style.css');
         
         // Warnmeldung für in der Vergangenheit liegende Monate anzeigen
-        if (gmmktime(0,0,0,$month,$last_day,$year) < time())
+        if (gmmktime(23,59,59,$month,$last_day,$year) < time())
         {
             $app =& JFactory::getApplication();
             $app->enqueueMessage('Der betrachtete Monat liegt in der Vergangenheit', 'warning');
