@@ -11,18 +11,8 @@
 // Sicherheitscheck
 defined('_JEXEC') or die('Restricted access');
 
-$controller = JRequest::getVar('controller','belegung');
+jimport('joomla.application.component.controller');
 
-require_once (JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php');
-
-// TODO: Editierfunktionen beschränken
-
-// Controller instanzieren
-$classname  = $controller.'controller';
-$controller = new $classname();
-
-// Request bearbeiten
+$controller = JController::getInstance('Belegung');
 $controller->execute(JRequest::getVar('task'));
-
-// Redirect wenn nötig
 $controller->redirect();

@@ -7,11 +7,8 @@ CREATE TABLE `#__belegung_info` (
 
 CREATE TABLE `#__belegung` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `von` date NOT NULL,
-  `bis` date NOT NULL,
-  `vonTageszeit` char NOT NULL,
-  `bisTageszeit` char NOT NULL,
-  `beschreibung` TEXT NULL,
+  `datum` date NOT NULL,
+  `tageszeit` char NOT NULL,
   `heim` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 );

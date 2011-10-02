@@ -32,7 +32,7 @@ class BelegungModelBelegung extends JModel
         
         $query = 'SELECT * FROM #__belegung WHERE heim = '.$heim;
         if ($filter)
-            $query .= ' AND bis > NOW()';
+            $query .= ' AND datum > NOW()';
         $query .= ' ORDER BY von';
         
         $db->setQuery($query);
@@ -61,7 +61,7 @@ class BelegungModelBelegung extends JModel
         
         $query = 'SELECT * FROM #__belegung 
                   WHERE heim = '.$heim.'
-                  AND ((von BETWEEN '.$start.' AND '.$stop.') OR (bis BETWEEN '.$start.' AND '.$stop.'))';
+                  AND (datum BETWEEN '.$start.' AND '.$stop.')';
         $db->setQuery( $query );
         $belegung = $db->loadObjectList();
 
@@ -71,6 +71,34 @@ class BelegungModelBelegung extends JModel
         }
 
         return $belegung;
+    }
+
+    function saveBelegung($heim, $year, $month, $belegung)
+    {
+        $app =& JFactory::getApplication();
+        $db =& JFactory::getDBO();
+        
+        $heim = $db->quote($heim);
+        
+        $query = 'DELETE FROM #__belegung
+                  WHERE heim = '.$heim.'
+                  AND MONTH(datum) = '.$month;
+        $db->setQuery($query);
+        $db->query();
+
+        foreach($belegung as $b)
+        {
+            $s = split('-', $b);
+            $day = $s[0];
+            $tageszeit = $db->quote($s[1]);
+            $datum = mktime(0, 0, 0, $month, $day, $year);
+            $query = 'INSERT INTO #__belegung (heim, datum, tageszeit)
+                      VALUES ('.$heim.',
+                        FROM_UNIXTIME('.$datum.'),
+                        '.$tageszeit.')';
+            $db->setQuery($query);
+            $db->query();
+        }
     }
     
     function getLastModified()

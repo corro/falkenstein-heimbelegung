@@ -16,8 +16,15 @@ function submitform()
     document.calendar.submit();
 }
 
+function save()
+{
+    document.getElementById('task').value = 'save';
+    submitform();
+}
+
 function changeMonth(month, year)
 {
+    document.getElementById('task').value = 'edit';
     document.getElementById('month').value = month;
     document.getElementById('year').value = year;
     submitform();
@@ -30,7 +37,6 @@ function changeMonth(month, year)
 <div class='componentheading'>
     Heimbelegung <?php echo heimName($this->heim); ?> im
     <?php echo gmstrftime('%B', gmmktime(0,0,0,$this->month,1,$this->year)); ?> <?php echo $this->year; ?>
-    <?php echo getEditButton('com_heimbelegung', 'Belegungen editieren'); ?><br />
 </div>
 
 <div class='contentpaneopen'>
@@ -77,15 +83,16 @@ function changeMonth(month, year)
                 ?>
             </select>
         </div>
-        
         <input type="hidden" name="month" id="month" value="<?php echo $this->month; ?>" />
         <input type="hidden" name="year" id="year" value="<?php echo $this->year; ?>" />
-    </form>
+        <input type="hidden" name="task" id="task" value="" />
     <div style="clear:both"></div>
     <hr />
     <div style="width:400px;margin-left:auto;margin-right:auto">
-        <?php echo generate_calendar($this->year, $this->month, $this->days); ?>
+        <?php echo generate_editable_calendar($this->year, $this->month, $this->days); ?>
         V = Vormittag, N = Nachmittag<br />
         <span style="font-size:8pt;color:gray">Zuletzt aktualisiert am: <?php echo date_mysql2german($this->last_mod); ?></span>
     </div>
+    </form>
+    <button name="save" style="float:right" onclick="save()">Speichern</button>
 </div>

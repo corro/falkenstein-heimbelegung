@@ -9,10 +9,11 @@
     <description>Component zur Visualisierung der Heimbelegung</description>
     <files folder="site">
         <filename>heimbelegung.php</filename>
+        <filename>controller.php</filename>
         <filename>index.html</filename>
         <folder>calendar</folder>
-        <folder>controllers</folder>
         <folder>css</folder>
+        <folder>models</folder>
         <folder>img</folder>
         <folder>views</folder>
     </files>
@@ -27,19 +28,8 @@
         </sql>
     </uninstall>
     <administration>
-        <menu>Heimbelegung</menu>
-        <submenu>
-            <menu link="option=com_heimbelegung&amp;heim=buschi">Bueschiheim</menu>
-            <menu link="option=com_heimbelegung&amp;heim=weiermatt">Weiermattheim</menu>
-        </submenu>
         <files folder="admin">
-            <filename>index.html</filename>
-            <filename>heimbelegung.php</filename>
-            <folder>controllers</folder>
-            <folder>models</folder>
-            <folder>helpers</folder>
             <folder>sql</folder>
-            <folder>views</folder>
-        </files>		
+        </files>
     </administration>
 </extension>
