@@ -13,13 +13,14 @@ require_once(JPATH_COMPONENT_ADMINISTRATOR.DS.'helpers'.DS.'helpers.php');
 
 function submitform()
 {
+    document.getElementById('task').value = 'edit';
     document.calendar.submit();
 }
 
 function save()
 {
     document.getElementById('task').value = 'save';
-    submitform();
+    document.calendar.submit();
 }
 
 function changeMonth(month, year)
