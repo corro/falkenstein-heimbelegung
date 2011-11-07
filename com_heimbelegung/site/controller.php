@@ -14,6 +14,8 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 // Import der Basisklasse
 jimport('joomla.application.component.controller');
 
+setlocale(LC_ALL, 'de_CH.UTF-8');
+
 /**
  * Belegung Controller
  *
