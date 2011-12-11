@@ -82,7 +82,8 @@ class BelegungModelBelegung extends JModel
         
         $query = 'DELETE FROM #__belegung
                   WHERE heim = '.$heim.'
-                  AND MONTH(datum) = '.$month;
+                  AND MONTH(datum) = '.$month.'
+                  AND YEAR(datum) = '.$year;
         $db->setQuery($query);
         $db->query();
 
