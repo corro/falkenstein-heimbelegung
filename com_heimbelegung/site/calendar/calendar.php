@@ -58,7 +58,7 @@ function generate_calendar($year, $month, $days = array(), $first_day = 1){
 
 	list($month, $year, $month_name, $weekday) = explode(',',gmstrftime('%m,%Y,%B,%w',$first_of_month));
 	$weekday = ($weekday + 7 - $first_day) % 7; #adjust for $first_day
-	$title   = htmlentities(ucfirst($month_name)).'&nbsp;'.$year;  #note that some locales don't capitalize month and day names
+	$title   = ucfirst($month_name).'&nbsp;'.$year;  #note that some locales don't capitalize month and day names
 
 	#Begin calendar.
 	$calendar = '<table class="calendar">
@@ -121,7 +121,7 @@ function generate_editable_calendar($year, $month, $days = array(), $first_day =
 
 	list($month, $year, $month_name, $weekday) = explode(',',gmstrftime('%m,%Y,%B,%w',$first_of_month));
 	$weekday = ($weekday + 7 - $first_day) % 7; #adjust for $first_day
-	$title   = htmlentities(ucfirst($month_name)).'&nbsp;'.$year;  #note that some locales don't capitalize month and day names
+	$title   = ucfirst($month_name).'&nbsp;'.$year;  #note that some locales don't capitalize month and day names
 
 	#Begin calendar.
 	$calendar = '<table class="calendar">
