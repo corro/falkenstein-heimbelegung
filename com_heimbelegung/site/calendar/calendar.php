@@ -23,16 +23,16 @@ function getCell($day, $busy, $vormittag)
 
 function getEditableCell($day, $busy, $vormittag)
 {
-    $cell = '<td class="hasTip ';
+    $cell = '<td class="';
     
     if ($busy and $vormittag)
-        $cell .= 'calendar-busy" title="'.$day.'. Vormittag::Besetzt">'.$day;
+        $cell .= 'calendar-busy">'.$day;
     else if ($busy)
-        $cell .= 'calendar-busy" title="'.$day.'. Nachmittag::Besetzt">';
+        $cell .= 'calendar-busy">';
     else if ($vormittag)
-        $cell .= 'calendar-free" title="'.$day.'. Vormittag::Frei">'.$day;
+        $cell .= 'calendar-free">'.$day;
     else
-        $cell .= 'calendar-free" title="'.$day.'. Nachmittag::Frei">';
+        $cell .= 'calendar-free">';
 
     $cell .= '<input type="checkbox" ';
     if ($busy)
