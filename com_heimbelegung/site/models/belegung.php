@@ -100,6 +100,11 @@ class BelegungModelBelegung extends JModel
             $db->setQuery($query);
             $db->query();
         }
+
+        $query = 'UPDATE #__belegung_info
+                  SET aktualisiert = FROM_UNIXTIME('.time().')';
+        $db->setQuery($query);
+        $db->query();
     }
     
     function getLastModified()
