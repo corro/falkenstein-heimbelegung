@@ -13,6 +13,6 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.controller');
 
-$controller = JController::getInstance('Belegung');
+$controller = JControllerLegacy::getInstance('Belegung');
 $controller->execute(JRequest::getVar('task'));
 $controller->redirect();

@@ -17,7 +17,7 @@ jimport( 'joomla.application.component.view');
  * @package		Falkenstein.Joomla
  * @subpackage	Components
  */
-class BelegungViewBelegung extends JView
+class BelegungViewBelegung extends JViewLegacy
 {
     function display($tpl = null)
     {

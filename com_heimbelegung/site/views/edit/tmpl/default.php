@@ -3,8 +3,8 @@
 defined('_JEXEC') or die('Restricted access');
 
 JHTML::_('behavior.tooltip');
-require_once(JPATH_COMPONENT.DS.'calendar'.DS.'calendar.php');
-require_once(JPATH_COMPONENT_ADMINISTRATOR.DS.'helpers'.DS.'helpers.php');
+require_once(JPATH_COMPONENT.'/calendar/calendar.php');
+require_once(JPATH_COMPONENT_ADMINISTRATOR.'/helpers/helpers.php');
 
 ?>
 
@@ -35,10 +35,9 @@ function changeMonth(month, year)
 </script>
 
 
-<div class='componentheading'>
-    Heimbelegung <?php echo heimName($this->heim); ?> im
-    <?php echo gmstrftime('%B', gmmktime(0,0,0,$this->month,1,$this->year)); ?> <?php echo $this->year; ?>
-</div>
+<h1 class='article-title'>
+    Heimbelegung <?php echo heimName($this->heim); ?>
+</h1>
 
 <div class='contentpaneopen'>
     <form name="calendar" action="" method="post">
@@ -62,8 +61,7 @@ function changeMonth(month, year)
         <img style="float:right;cursor:pointer" width="22" height="22" class="hasTip"
              src="components/com_heimbelegung/img/view-refresh.png" onclick="submitform()" title="Refresh" alt="refresh" />
         
-        <div style="float:right">
-            <select name="goto_month" id="goto_month" onchange="changeMonth(document.getElementById('goto_month').value, <?php echo $this->year; ?>)">
+        <select style="float:right" name="goto_month" id="goto_month" onchange="changeMonth(document.getElementById('goto_month').value, <?php echo $this->year; ?>)">
                 <?php
                     for ($i = 1; $i <= 12; $i++)
                     {
@@ -72,8 +70,8 @@ function changeMonth(month, year)
                         echo '>'.gmstrftime('%B', gmmktime(0,0,0,$i,1,$this->year)).'</option>';
                     }
                 ?>
-            </select>
-            <select name="goto_year" id="goto_year" onchange="changeMonth(<?php echo $this->month; ?>, document.getElementById('goto_year').value)">
+        </select>
+        <select style="float:right" name="goto_year" id="goto_year" onchange="changeMonth(<?php echo $this->month; ?>, document.getElementById('goto_year').value)">
                 <?php
                     for ($i = -5; $i <= 5; $i++)
                     {
@@ -82,8 +80,7 @@ function changeMonth(month, year)
                         echo '>'.($this->year + $i).'</option>';
                     }
                 ?>
-            </select>
-        </div>
+        </select>
         <input type="hidden" name="month" id="month" value="<?php echo $this->month; ?>" />
         <input type="hidden" name="year" id="year" value="<?php echo $this->year; ?>" />
         <input type="hidden" name="task" id="task" value="" />

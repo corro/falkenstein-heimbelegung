@@ -22,7 +22,7 @@ setlocale(LC_ALL, 'de_CH.UTF-8');
  * @package    Falkenstein.Joomla
  * @subpackage Components
  */
-class BelegungController extends JController
+class BelegungController extends JControllerLegacy
 {
     public function edit()
     {

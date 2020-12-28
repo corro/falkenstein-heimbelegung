@@ -21,7 +21,7 @@ jimport( 'joomla.application.component.model' );
  * @package    Falkenstein.Joomla
  * @subpackage Components
  */
-class BelegungModelBelegung extends JModel
+class BelegungModelBelegung extends JModelLegacy
 {
     function getBelegungForHeim($heim, $filter = 1)
     {
@@ -89,7 +89,7 @@ class BelegungModelBelegung extends JModel
 
         foreach($belegung as $b)
         {
-            $s = split('-', $b);
+            $s = explode('-', $b);
             $day = $s[0];
             $tageszeit = $db->quote($s[1]);
             $datum = mktime(0, 0, 0, $month, $day, $year);

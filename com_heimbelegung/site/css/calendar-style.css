@@ -9,11 +9,14 @@
 .calendar th {
     font-weight: normal;
     background-color: #eeeeee;
+    text-align: center;
+    vertical-align: middle;
 }
 .calendar td {
     width:23px;
     color:white;
     border: solid 1px black;
+    text-align: center;
 }
 .calendar-title {
     border-bottom: solid 1px;

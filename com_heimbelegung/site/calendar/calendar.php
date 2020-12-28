@@ -34,6 +34,7 @@ function getEditableCell($day, $busy, $vormittag)
     else
         $cell .= 'calendar-free">';
 
+    $cell .= '<br/>';
     $cell .= '<input type="checkbox" ';
     if ($busy)
         $cell .= 'checked="checked" ';
